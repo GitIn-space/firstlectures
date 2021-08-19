@@ -693,6 +693,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1363650272}
+  - component: {fileID: 1363650273}
   m_Layer: 0
   m_Name: laser
   m_TagString: Untagged
@@ -714,6 +715,20 @@ Transform:
   m_Father: {fileID: 118683714}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1363650273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363650271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76f662659a39521448609f59ccd5a75e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletprefab: {fileID: 0}
+  roundsperminute: 60
 --- !u!1 &1422396544
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,6 +820,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1451077262}
+  - component: {fileID: 1451077263}
   m_Layer: 0
   m_Name: cannon
   m_TagString: Untagged
@@ -826,6 +842,20 @@ Transform:
   m_Father: {fileID: 118683714}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1451077263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451077261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 263f1ce11c73fa1428f973588f063899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletprefab: {fileID: 6819001214515853942, guid: ec005af492378c845bdc715d7ed88d03, type: 3}
+  roundsperminute: 60
 --- !u!1 &1575629441
 GameObject:
   m_ObjectHideFlags: 0

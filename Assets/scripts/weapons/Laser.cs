@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace FG
 {
-    public class Cannon : MonoBehaviour, Iweapon
+    public class Laser : MonoBehaviour, Iweapon
     {
         [SerializeField] private GameObject bulletprefab;
         [SerializeField] private float roundsperminute = 60f;
@@ -21,26 +21,22 @@ namespace FG
 
         public void Startshooting(Action<int> onHitCallback)
         {
-            if (isshooting)
-                return;
-
-            shootingroutine = StartCoroutine(Shooting(Mathf.Max(0f, timeoflastshot + timebetweenshots - Time.time), onHitCallback));
+            Debug.Log("pew");
         }
 
         public void Stopshooting()
         {
-            StopCoroutine(shootingroutine);
-            isshooting = false;
+            Debug.Log("floof");
         }
 
         private IEnumerator Shooting(float startdelay, Action<int> onHitCallback)
         {
-            if(startdelay > 0f)
+            if (startdelay > 0f)
             {
                 yield return new WaitForSeconds(startdelay);
             }
 
-            while(true)
+            while (true)
             {
                 Fireshot(onHitCallback);
                 timeoflastshot = Time.time;
@@ -50,8 +46,7 @@ namespace FG
 
         private void Fireshot(Action<int> onHitCallback)
         {
-            Vector2 direction = _transform.root.position.directionto(_transform.position);
-            Instantiate(bulletprefab, _transform.position, Quaternion.identity)?.GetComponent<Cannonball>()?.Fire(direction, onHitCallback);
+
         }
 
         private void Awake()
