@@ -5,11 +5,15 @@ namespace FG
     [RequireComponent(typeof(Shiprotator), typeof(Thruster))]
     public class Playercontroller : MonoBehaviour
     {
+        [SerializeField] private Intevent onpointsadded;
+
         private Thruster thruster;
         private Shiprotator _shiprotator;
 
         private Iweapon[] weapons;
         private int currentweaponindex = 0;
+
+        private int totalpoints;
 
         public void Stepweapon(float direction)
         {
@@ -28,7 +32,8 @@ namespace FG
 
         private void Onfirehit(int points)
         {
-
+            totalpoints += points;
+            onpointsadded.Invoke(totalpoints);
         }
 
         #region unity event functions

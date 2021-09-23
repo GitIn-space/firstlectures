@@ -8,4 +8,10 @@ namespace FG
     {
 
     }
+
+    [Serializable]
+    public class Intevent : UnityEvent<int>
+    {
+
+    }
 }

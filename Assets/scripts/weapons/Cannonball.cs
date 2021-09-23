@@ -7,7 +7,6 @@ namespace FG
     public class Cannonball : MonoBehaviour
     {
         [SerializeField] private float force = 2f;
-        [SerializeField] private int points = 5;
 
         private Rigidbody2D body;
         private Action<int> _onHitCallback;
@@ -18,7 +17,21 @@ namespace FG
             body.AddForce(direction * force, ForceMode2D.Impulse);
         }
 
-        private void Destroybullet()
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (!collision.collider.CompareTag("Enemy"))
+                return;
+
+            Enemy enemy = collision.collider.GetComponent<Enemy>();
+            if (!ReferenceEquals(enemy, null))
+            {
+                Destroybullet(enemy.Hit());
+            }
+            else
+                Destroybullet(0);
+        }
+
+        private void Destroybullet(int points)
         {
             _onHitCallback.Invoke(points);
             Destroy(gameObject);
